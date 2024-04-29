@@ -1,18 +1,16 @@
 import { Injectable } from '@angular/core';
+import { Vehiculo } from './vehiculo';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment.development';
 import { Observable } from 'rxjs';
-import { Vehiculo } from './vehiculo';
+
 
 @Injectable({
   providedIn: 'root',
 })
 export class VehiculoService {
 
-  private apiUrl: string = environment.baseUrl;
-
-  // private apiUrl: string = environment.baseUrl + '202212_MISW4104_Grupo1.json';
-
+  private apiUrl: string = environment.baseUrl + '202212_MISW4104_Grupo1.json';
 
   constructor(private http: HttpClient) {}
 
@@ -22,4 +20,6 @@ export class VehiculoService {
 
     return this.http.get<Vehiculo[]>(this.apiUrl);
   }
+
+  
 }
